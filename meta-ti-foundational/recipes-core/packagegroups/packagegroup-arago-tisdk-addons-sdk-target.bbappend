@@ -1,5 +1,9 @@
 PR:append = "_tisdk_0"
 
+DEMOS = ""
+DEMOS:append:am437x-evm = " ti-lvgl-demo"
+
+
 UTILS:append:ti33x = " \
     opencv-dev \
 "

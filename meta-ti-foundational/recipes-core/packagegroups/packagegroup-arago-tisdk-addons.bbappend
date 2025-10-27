@@ -5,6 +5,7 @@ DEMOS:append:am62xx = " ti-apps-launcher"
 DEMOS:append:am62pxx = " ti-apps-launcher"
 DEMOS:append:am62pxx = " ti-lvgl-demo"
 DEMOS:append:am62lxx = " ti-lvgl-demo"
+DEMOS:append:am437x-evm = " ti-lvgl-demo"
 DEMOS:append:foundational = " ti-apps-launcher"
 DEMOS:append:am62dxx-evm = " ti-librpmsg-dma-example"
 
