@@ -11,3 +11,4 @@ IMAGE_INSTALL:append:am62pxx = " ti-gst-plugins-source ti-gst-plugins-dev ti-gst
 IMAGE_INSTALL:remove:am62dxx = " packagegroup-arago-tisdk-graphics"
 IMAGE_INSTALL:append:am62dxx = " cpld-ctl"
 IMAGE_INSTALL:append:am437x-evm = " mosquitto libmosquitto1 libmosquittopp1 mosquitto-clients mosquitto-dev"
+IMAGE_INSTALL:append:am65xx-evm = " mosquitto libmosquitto1 libmosquittopp1 mosquitto-clients mosquitto-dev"

@@ -1,0 +1,37 @@
+# This is a system unit for launching ti-lvgl-demo.
+[Unit]
+Description=ti-lvgl-demo service
+After=multi-user.target systemd-user-sessions.service
+Conflicts=getty@tty1.service
+
+[Service]
+Type=simple
+
+# Pre-start: Prepare display environment
+ExecStartPre=-/bin/systemctl stop getty@tty1.service
+ExecStartPre=-/bin/sh -c 'echo "Unbinding framebuffer console..." && echo 0 > /sys/class/vtconsole/vtcon1/bind || echo "Warning: Could not unbind console"'
+
+# Main application
+ExecStart=/usr/bin/lvglsim
+
+# Post-stop: Restore console environment
+ExecStopPost=-/bin/sh -c 'echo "Rebinding framebuffer console..." && echo 1 > /sys/class/vtconsole/vtcon1/bind || echo "Warning: Could not rebind console"'
+ExecStopPost=-/bin/sh -c 'sleep 1'
+ExecStopPost=-/bin/systemctl start getty@tty1.service
+
+# Restart policy
+Restart=on-failure
+RestartSec=5
+StartLimitBurst=3
+StartLimitInterval=60
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ti-lvgl-demo
+
+# Resource limits
+LimitNOFILE=1024
+
+[Install]
+WantedBy=graphical.target multi-user.target
