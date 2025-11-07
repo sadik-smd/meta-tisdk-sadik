@@ -3,13 +3,13 @@ DESCRIPTION = "High Resolution OOB Demo"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=802d3d83ae80ef5f343050bf96cce3a4"
 
-SRC_URI = "gitsm://github.com/texasinstruments/ti-lvgl-demo.git;branch=master;protocol=https \
+SRC_URI = "gitsm://github.com/texasinstruments/ti-lvgl-demo.git;branch=legacy;protocol=https \
            file://ti-lvgl-demo.service \
           "
 S = "${WORKDIR}/git/lv_port_linux"
 B = "${S}/build-arm64"
 
-SRCREV = "231f5d956c83f934c6b4175870d867a61ae5bc32"
+SRCREV = "68ba20d949806382a9753f2f354281f12fbb0d76"
 
 inherit systemd
 SYSTEMD_PACKAGES = "${PN}"
@@ -21,10 +21,9 @@ RDEPENDS:${PN} += "cmake mosquitto alsa-lib alsa-utils alsa-tools libdrm libsdl2
 inherit cmake
 OECMAKE_SOURCEPATH = "${S}"
 EXTRA_OECMAKE += " \
-      -DCMAKE_CXX_FLAGS=-O3 \
-      -DCMAKE_C_FLAGS=-O3 \
-      -DCMAKE_C_FLAGS=-I${STAGING_INCDIR}/libdrm \
-      -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_CXX_FLAGS='-O3 -DLV_USE_WAYLAND=1 -DLV_USE_LINUX_FBDEV=0' \
+    -DCMAKE_C_FLAGS='-O3 -DLV_USE_WAYLAND=1 -DLV_USE_LINUX_FBDEV=0 -I${STAGING_INCDIR}/libdrm' \
+    -DCMAKE_BUILD_TYPE=Release \
 "
 
 do_configure() {
