@@ -8,12 +8,6 @@ and boot the image. This image is derived from arago-tiny-initramfs.\
 
 require recipes-core/images/arago-tiny-initramfs.bb
 
-# The jailhouse inmate runs as a standalone rootfs without a block device.
-# The kernel is loaded separately by linux-loader.bin, so we list the boot
-# packages explicitly without any kernel dependencies.
-
-inherit core-image
-
 # Enable passwordless root login (user types "root", no password asked)
 IMAGE_FEATURES += "empty-root-password"
 
@@ -24,4 +18,14 @@ PACKAGE_INSTALL = " \
     netbase \
     shadow-base \
     update-alternatives-opkg \
+    parted \
+    util-linux \
+    e2fsprogs \
+    dosfstools \
+    mmc-utils \
+    tar \
+    gzip \
+    xz \
+    wget \
+    dropbear \
 "
