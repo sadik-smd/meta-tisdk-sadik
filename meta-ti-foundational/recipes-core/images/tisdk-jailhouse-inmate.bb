@@ -5,6 +5,6 @@ This image is derived from arago-jailhouse-inmate and includes additional packag
 for out-of-box demo.\
 "
 
-require recipes-core/images/arago-jailhouse-inmate.bb
+require recipes-core/images/tisdk-tiny-initramfs.bb
 
-PACKAGE_INSTALL += "jailhouse-oob perf"
+PACKAGE_INSTALL += "jailhouse-inmate jailhouse-oob perf"
