@@ -14,8 +14,6 @@ require recipes-core/images/arago-tiny-initramfs.bb
 
 inherit core-image
 
-INITRAMFS_MAXSIZE = "262144"
-
 # Enable passwordless root login (user types "root", no password asked)
 IMAGE_FEATURES += "empty-root-password"
 
@@ -25,7 +23,5 @@ PACKAGE_INSTALL = " \
     busybox \
     netbase \
     shadow-base \
-    systemd \
     update-alternatives-opkg \
-    perf \
 "
