@@ -12,8 +12,6 @@ INITRAMFS_MAXSIZE = "262144"
 
 # Add jailhouse-specific packages and additional tools needed for the demo
 PACKAGE_INSTALL += " \
-    jailhouse-inmate \
-    jailhouse-oob \
     systemd \
     perf \
 "
