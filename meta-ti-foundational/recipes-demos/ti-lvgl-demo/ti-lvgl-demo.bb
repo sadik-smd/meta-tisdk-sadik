@@ -7,15 +7,15 @@ BRANCH = "legacy"
 BRANCH:am62lxx-evm = "version_9.4"
 
 SRC_URI = "gitsm://github.com/texasinstruments/ti-lvgl-demo.git;branch=${BRANCH};protocol=https;name=main \
-           git://github.com/TexasInstruments/lv_demos.git;protocol=https;branch=${BRANCH};name=lvdemos;destsuffix=git-lvdemos \
+           git://github.com/sadik-smd/lv_demos.git;protocol=https;branch=${BRANCH};name=lvdemos;destsuffix=git-lvdemos \
            file://ti-lvgl-demo.service \
           "
 
 S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}/lv_port_linux"
 
-SRCREV_main = "edc14fdab29376d9642ee057c9a2095fdc58416a"
+SRCREV_main = "b8459f51acc8ecdd16a7cab2b09549f2a68000bf"
 SRCREV_main:am62lxx-evm = "346dc2971873333a2451e1ccd466358154800c34"
-SRCREV_lvdemos = "de9c755979b690a2064b80d993bd14f0be7eff5b"
+SRCREV_lvdemos = "83cfa027a07ee8ecc2cce24c161540a3232c8003"
 SRCREV_lvdemos:am62lxx-evm = "8e41791a2dce961ff9e157b413dcea2217301146"
 SRCREV_FORMAT = "main_lvdemos"
 

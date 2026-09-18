@@ -6,7 +6,7 @@ DEMOS:append:am62pxx = " ti-apps-launcher webserver-oob"
 DEMOS:append:am62lxx-evm = " ti-lvgl-demo webserver-oob"
 DEMOS:append:foundational = " ti-apps-launcher"
 DEMOS:append:am62dxx-evm = " ti-librpmsg-dma-example webserver-oob"
-DEMOS:append:am335x-evm = " ti-lvgl-demo webserver-oob"
+DEMOS:append:am335x-evm = " lvgl-demo-fb webserver-oob"
 DEMOS:append:am437x-evm  = " ti-lvgl-demo"
 DEMOS:append:am65xx-evm  = " ti-lvgl-demo"
 
