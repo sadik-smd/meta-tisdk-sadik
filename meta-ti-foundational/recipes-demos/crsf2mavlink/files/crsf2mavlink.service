@@ -1,0 +1,22 @@
+[Unit]
+Description=CRSF to MAVLink RC bridge
+Documentation=file:///etc/crsf2mavlink/crsf2mavlink.conf
+# Start after mavlink-router has opened its UDP endpoints
+After=mavlink-router.service
+Requires=mavlink-router.service
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/crsf2mavlink
+Restart=on-failure
+RestartSec=3
+
+# Access to serial devices
+SupplementaryGroups=dialout
+
+# Harden the service slightly
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

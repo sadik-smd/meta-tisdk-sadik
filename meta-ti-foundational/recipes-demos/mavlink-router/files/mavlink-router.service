@@ -1,0 +1,19 @@
+[Unit]
+Description=MAVLink Router
+Documentation=https://github.com/mavlink-router/mavlink-router
+After=network.target gpsd.service
+Wants=gpsd.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/mavlink-routerd \
+    -c /etc/mavlink-router/main.conf \
+    -d /etc/mavlink-router/config.d
+Restart=on-failure
+RestartSec=5
+
+# Give MAVLink router access to serial devices
+SupplementaryGroups=dialout
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,34 @@
+[Unit]
+Description=QGroundControl Drone GCS
+Documentation=https://qgroundcontrol.com
+# Wait for the MAVLink broker and Wayland compositor before starting
+After=mavlink-router.service weston.service
+Requires=mavlink-router.service
+Wants=weston.service
+
+[Service]
+Type=simple
+# Run as the graphical session user (adjust if using a dedicated user)
+User=root
+ExecStart=/usr/bin/qgroundcontrol
+Restart=on-failure
+RestartSec=5
+
+# Wayland display environment
+Environment=WAYLAND_DISPLAY=wayland-0
+Environment=XDG_RUNTIME_DIR=/run/user/0
+
+# Qt platform and rendering
+Environment=QT_QPA_PLATFORM=wayland
+Environment=QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+Environment=QSG_RENDER_LOOP=basic
+
+# GStreamer plugin path includes TI hardware plugins
+Environment=GST_PLUGIN_PATH=/usr/lib/gstreamer-1.0
+Environment=GST_DEBUG=2
+
+# QGC settings directory
+Environment=QGC_SETTINGS_DIR=/etc/qgroundcontrol
+
+[Install]
+WantedBy=graphical.target
